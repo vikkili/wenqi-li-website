@@ -3,7 +3,9 @@
 Personal website of Wenqi Li, Assistant Professor in the Department of
 Information Management at Peking University.
 
-**Live site:** https://vikkili.github.io/wenqi-li-website/
+**Live site:** https://lemon-hill-09f2dea00.7.azurestaticapps.net
+
+托管在 Azure Static Web Apps（East Asia / 香港，Free 层）。
 
 ## 结构
 
@@ -36,8 +38,21 @@ Information Management at Peking University.
 
 ## 部署
 
-推送到 `main` 分支即可，GitHub Pages 会自动发布，约一分钟生效。
+托管在 Azure Static Web Apps，资源组 `wenqi-website-rg`，应用名 `wenqi-li-website`。
+
+先登录（租户带 MFA，只需做一次，令牌会缓存）：
 
 ```
-git add -A && git commit -m "..." && git push
+az login --tenant a82c9fc8-1578-43ec-9302-b3f3e83acf22
 ```
+
+然后一条命令部署：
+
+```
+./deploy.sh
+```
+
+脚本会把该公开的文件挑到临时目录（原图不上传），取部署令牌，推送到 production 环境。
+
+`staticwebapp.config.json` 控制缓存时长、安全响应头和 404 页面（`404.html`）。
+Git 推送到 GitHub 只是版本管理，不会触发部署 —— 部署要跑 `./deploy.sh`。
