@@ -56,3 +56,17 @@ az login --tenant a82c9fc8-1578-43ec-9302-b3f3e83acf22
 
 `staticwebapp.config.json` 控制缓存时长、安全响应头和 404 页面（`404.html`）。
 Git 推送到 GitHub 只是版本管理，不会触发部署 —— 部署要跑 `./deploy.sh`。
+
+## 自定义域名
+
+买好域名后：
+
+```
+./setup-domain.sh wenqili.net
+```
+
+脚本会同时绑定根域名和 `www`，并打印需要在注册商 DNS 面板添加的记录
+（根域名走 TXT token 验证，`www` 走 CNAME 验证）。
+DNS 生效后用 `./domain-status.sh` 查看验证与证书状态。
+
+站点托管在香港（Azure 国际版），**不需要 ICP 备案** —— 备案只针对中国大陆境内的服务器。
