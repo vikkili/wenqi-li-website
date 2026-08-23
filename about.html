@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-en="The academic path behind Wenqi Li's work - Peking University, an exchange term at City University of Hong Kong, a master's at HCDE, University of Washington, and a Ph.D. in Information Science - plus interests beyond research." data-zh="李文琦的求学经历与研究之外的个人兴趣：北京大学本科、香港城市大学交换、华盛顿大学 HCDE 硕士，以及北京大学情报学博士。" content="The academic path behind Wenqi Li's work - Peking University, an exchange term at City University of Hong Kong, a master's at HCDE, University of Washington, and a Ph.D. in Information Science - plus interests beyond research.">
 <title data-en="More About — Wenqi Li" data-zh="关于我 — 李文琦">More About — Wenqi Li</title>
 <script>(function(){var l=null;try{l=localStorage.getItem('site-lang')}catch(e){}l=(l==='zh'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-lang',l);r.setAttribute('lang',l==='zh'?'zh-CN':'en')})();</script>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -236,11 +240,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2r
 
 <script>
 (function(){
-  var root=document.documentElement,titleEl=document.querySelector('title');
+  var root=document.documentElement,titleEl=document.querySelector('title'),descEl=document.querySelector('meta[name="description"]');
   function apply(l){
     root.setAttribute('data-lang',l);
     root.setAttribute('lang',l==='zh'?'zh-CN':'en');
     if(titleEl&&titleEl.getAttribute('data-'+l))document.title=titleEl.getAttribute('data-'+l);
+    if(descEl&&descEl.getAttribute('data-'+l))descEl.setAttribute('content',descEl.getAttribute('data-'+l));
   }
   var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
   apply(saved==='zh'||saved==='en'?saved:(root.getAttribute('data-lang')||'en'));

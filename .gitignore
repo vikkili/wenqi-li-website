@@ -12,3 +12,4 @@ photo/*.JPEG
 photo/*.jpeg
 photo/*.PNG
 photo/*.png
+.claude/

@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-en="Wenqi Li is an Assistant Professor in the Department of Information Management at Peking University, working on digital cultural heritage, human-computer interaction, and data behavior." data-zh="李文琦，北京大学信息管理系助理教授，研究方向涵盖数字文化遗产、人机交互与数据行为。" content="Wenqi Li is an Assistant Professor in the Department of Information Management at Peking University, working on digital cultural heritage, human-computer interaction, and data behavior.">
 <title data-en="Wenqi Li — Digital Cultural Heritage &amp; HCI" data-zh="李文琦 — 数字文化遗产与人机交互">Wenqi Li — Digital Cultural Heritage &amp; HCI</title>
 <script>(function(){var l=null;try{l=localStorage.getItem('site-lang')}catch(e){}l=(l==='zh'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-lang',l);r.setAttribute('lang',l==='zh'?'zh-CN':'en')})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -206,11 +210,12 @@ html[data-lang="zh"] body{line-height:1.75}
 
 <script>
 (function(){
-  var root=document.documentElement,titleEl=document.querySelector('title');
+  var root=document.documentElement,titleEl=document.querySelector('title'),descEl=document.querySelector('meta[name="description"]');
   function apply(l){
     root.setAttribute('data-lang',l);
     root.setAttribute('lang',l==='zh'?'zh-CN':'en');
     if(titleEl&&titleEl.getAttribute('data-'+l))document.title=titleEl.getAttribute('data-'+l);
+    if(descEl&&descEl.getAttribute('data-'+l))descEl.setAttribute('content',descEl.getAttribute('data-'+l));
   }
   var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
   apply(saved==='zh'||saved==='en'?saved:(root.getAttribute('data-lang')||'en'));
