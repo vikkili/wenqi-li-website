@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Research — Wenqi Li" data-zh="科研 — 李文琦">Research — Wenqi Li</title>
+<script>(function(){var l=null;try{l=localStorage.getItem('site-lang')}catch(e){}l=(l==='zh'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-lang',l);r.setAttribute('lang',l==='zh'?'zh-CN':'en')})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#FAFAF8;--surface:#FFFFFF;--border:#E8E6EE;
+--accent:#6B5CE7;--accent2:#9B8FE8;
+--text:#2D2B35;--text-dim:#6B6880;--text-muted:#A09CB0;
+--cjk:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC';
+--font-body:'IBM Plex Sans',var(--cjk),sans-serif;
+--font-head:'Outfit',var(--cjk),sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+
+/* I18N */
+html[data-lang="en"] .lang-zh{display:none!important}
+html[data-lang="zh"] .lang-en{display:none!important}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+background:rgba(250,250,248,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:var(--font-head);font-size:1.15rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+.nav-right{display:flex;align-items:center;gap:1.25rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .25s;position:relative}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent)}
+.nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+background:var(--accent);box-shadow:0 0 8px rgba(107,92,231,.3);border-radius:2px}
+.lang-toggle{padding:.3rem .7rem;border:1px solid var(--border);background:var(--surface);color:var(--text-dim);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.08em;cursor:pointer;transition:color .2s,border-color .2s}
+.lang-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.nav-hamburger span{width:22px;height:2px;background:var(--text-dim);border-radius:1px}
+
+/* Layout */
+main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:7rem 2rem 4rem}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.anim{opacity:0;animation:fadeUp .7s ease forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}
+.d4{animation-delay:.35s}.d5{animation-delay:.45s}.d6{animation-delay:.55s}
+
+/* Page header */
+.page-header{margin-bottom:2.5rem}
+.page-header h1{font-family:var(--font-head);font-size:3rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.6rem}
+.page-header p{font-size:1.1rem;color:var(--text-dim);max-width:720px}
+
+/* Jump nav */
+.jump{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.jump a{font-size:.82rem;font-weight:500;color:var(--text-dim);text-decoration:none;
+padding:.4rem .85rem;border:1px solid var(--border);background:var(--surface);transition:color .2s,border-color .2s}
+.jump a:hover{color:var(--accent);border-color:var(--accent)}
+.jump a .n{color:var(--accent);font-weight:600;margin-right:.4rem;font-variant-numeric:tabular-nums}
+
+/* ── Theme block ── */
+.theme{margin-bottom:4.5rem;scroll-margin-top:5.5rem}
+.theme-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.theme-num{font-family:var(--font-head);font-size:.85rem;font-weight:700;color:var(--accent);
+font-variant-numeric:tabular-nums;letter-spacing:.08em;flex-shrink:0}
+.theme-head h2{font-family:var(--font-head);font-size:1.65rem;font-weight:600;letter-spacing:-.02em;line-height:1.25}
+.theme-desc{color:var(--text-dim);font-size:1rem;line-height:1.8;max-width:760px;margin-bottom:1.8rem;
+padding-left:1rem;border-left:2px solid var(--border)}
+
+.theme-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:2.5rem;align-items:start}
+.col-label{font-family:var(--font-head);font-size:.7rem;font-weight:700;text-transform:uppercase;
+letter-spacing:.14em;color:var(--text-muted);margin-bottom:.9rem}
+html[data-lang="zh"] .col-label{letter-spacing:.08em}
+
+/* Projects */
+.proj-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.proj{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);
+padding:.95rem 1.15rem;box-shadow:0 1px 3px rgba(45,43,53,.03)}
+.proj.past{border-left-color:var(--border)}
+.proj-title{font-size:.93rem;font-weight:500;line-height:1.5;margin-bottom:.35rem}
+.proj-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font-size:.78rem;color:var(--text-muted)}
+.role{font-weight:600;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;
+padding:.15rem .5rem;background:rgba(107,92,231,.09);color:var(--accent);white-space:nowrap}
+html[data-lang="zh"] .role{text-transform:none;letter-spacing:.02em}
+.proj.past .role{background:rgba(107,92,231,.045);color:var(--text-muted)}
+
+/* Related work */
+.rel-list{list-style:none;display:flex;flex-direction:column}
+.rel-list li{padding:.6rem 0;border-bottom:1px solid var(--border)}
+.rel-list li:last-child{border-bottom:none}
+.rel-list a{display:block;font-size:.89rem;color:var(--text);text-decoration:none;line-height:1.5;transition:color .2s}
+.rel-list a:hover{color:var(--accent)}
+.rel-venue{display:block;font-size:.76rem;color:var(--text-muted);margin-top:.15rem}
+.rel-venue .star{color:var(--accent);font-weight:600}
+
+/* ── Publications ── */
+.pubs{border-top:1px solid var(--border);padding-top:3rem;scroll-margin-top:5.5rem}
+.pubs h2{font-family:var(--font-head);font-size:1.65rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.4rem}
+.pubs .note{color:var(--text-muted);font-size:.85rem;margin-bottom:2rem}
+.pubs .note a{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--text-muted)}
+h3.sub{font-family:var(--font-head);font-size:.72rem;font-weight:700;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:.14em;margin:2.2rem 0 .5rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+h3.sub:first-of-type{margin-top:0}
+html[data-lang="zh"] h3.sub{letter-spacing:.08em}
+.pub-list{list-style:none;display:flex;flex-direction:column}
+.pub-item{display:flex;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--border);align-items:baseline;scroll-margin-top:5.5rem}
+.pub-item:last-child{border-bottom:none}
+.pub-item:target{background:rgba(107,92,231,.055);box-shadow:0 0 0 .55rem rgba(107,92,231,.055)}
+.pub-id{flex-shrink:0;width:44px;font-size:.72rem;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.pub-body{flex:1;min-width:0;font-size:.92rem;color:var(--text-dim);line-height:1.65}
+.pub-body em{color:var(--text);font-style:normal;font-weight:500}
+.pub-body b{color:var(--text);font-weight:600}
+.pub-badge{display:inline-block;font-size:.67rem;color:var(--accent);font-weight:600;
+background:rgba(107,92,231,.08);padding:.1rem .45rem;margin-left:.35rem;vertical-align:1px;letter-spacing:.03em}
+
+/* Footer */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem;text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-inner p{color:var(--text-muted);font-size:.85rem;margin-bottom:.3rem}
+.footer-inner a{color:var(--text-dim);text-decoration:none;transition:color .2s}
+.footer-inner a:hover{color:var(--accent)}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;margin-top:.8rem}
+.footer-links a{font-size:.85rem;font-weight:500}
+
+@media(max-width:900px){
+.page-header h1{font-size:2.3rem}
+main{padding:6rem 1.5rem 3rem}
+.nav-links{gap:1.2rem}
+.nav-right{gap:1rem}
+.theme-cols{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:480px){
+.nav-links{display:none;position:absolute;top:64px;left:0;right:0;
+background:rgba(250,250,248,.97);backdrop-filter:blur(20px);flex-direction:column;
+padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid var(--border)}
+.nav-links.open{display:flex}
+.nav-hamburger{display:flex}
+.page-header h1{font-size:1.8rem}
+.page-header p{font-size:.95rem}
+.theme-head h2{font-size:1.3rem}
+.pub-item{flex-direction:column;gap:.2rem}
+.pub-id{width:auto}
+main{padding:5.5rem 1.2rem 2.5rem}
+}
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(107,92,231,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(107,92,231,.04) 1px,transparent 1px);background-size:60px 60px}
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.orb-1{width:500px;height:500px;background:rgba(107,92,231,.06);top:-10%;right:-5%}
+.orb-2{width:400px;height:400px;background:rgba(155,143,232,.05);bottom:10%;left:-8%}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav>
+<div class="nav-inner">
+<a href="index.html" class="nav-logo"><span class="lang-en">Wenqi Li</span><span class="lang-zh">李文琦</span></a>
+<button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-right">
+<ul class="nav-links">
+<li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh">首页</span></a></li>
+<li><a href="research.html" class="active"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a></li>
+<li><a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-zh">教学</span></a></li>
+<li><a href="cv.html"><span class="lang-en">CV</span><span class="lang-zh">简历</span></a></li>
+<li><a href="about.html"><span class="lang-en">More About</span><span class="lang-zh">关于我</span></a></li>
+</ul>
+<button class="lang-toggle" type="button" aria-label="Switch language / 切换语言"><span class="lang-en">中文</span><span class="lang-zh">EN</span></button>
+</div>
+</div>
+</nav>
+
+<main>
+
+<div class="page-header anim d1">
+<h1><span class="lang-en">Research</span><span class="lang-zh">科研</span></h1>
+</div>
+
+<div class="jump anim d2" role="navigation" aria-label="Research areas">
+<a href="#dch"><span class="n">01</span><span class="lang-en">Digital Cultural Heritage</span><span class="lang-zh">数字文化遗产</span></a>
+<a href="#hci"><span class="n">02</span><span class="lang-en">HCI &amp; Human-Centered AI</span><span class="lang-zh">人机交互与人本人工智能</span></a>
+<a href="#data"><span class="n">03</span><span class="lang-en">Data Behavior &amp; Curation</span><span class="lang-zh">数据行为与数据管护</span></a>
+<a href="#dh"><span class="n">04</span><span class="lang-en">Digital Humanities</span><span class="lang-zh">数字人文</span></a>
+<a href="#pubs"><span class="lang-en">All Publications</span><span class="lang-zh">全部成果</span></a>
+</div>
+
+<!-- ── 01 Digital Cultural Heritage ── -->
+<section class="theme anim d3" id="dch">
+<div class="theme-head">
+<span class="theme-num">01</span>
+<h2><span class="lang-en">Digital Cultural Heritage</span><span class="lang-zh">数字文化遗产</span></h2>
+</div>
+<p class="theme-desc"><span class="lang-en">Using generative AI, extended reality, knowledge graphs, and other digital intelligence technologies to bring cultural heritage to a wider public, and to draw that public into its preservation, interpretation, and transmission.</span><span class="lang-zh">利用生成式人工智能、延展现实、知识图谱等数智技术，让文化遗产走向更广泛的公众，使公众参与到文化遗产的保护、阐释与传承中。</span></p>
+<div class="theme-cols">
+<div>
+<h3 class="col-label"><span class="lang-en">Projects</span><span class="lang-zh">科研项目</span></h3>
+<ul class="proj-list">
+<li class="proj">
+<div class="proj-title"><span class="lang-en">Construction of an Intelligent Generation System for Digital Patrons of the Yungang Grottoes</span><span class="lang-zh">云冈石窟数字供养人智能生成系统构建</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">PI</span><span class="lang-zh">主持</span></span><span class="lang-en">Yungang Academy Open Research Project (Key) · 2026–2028</span><span class="lang-zh">云冈研究院开放课题（重点） · 2026–2028</span></div>
+</li>
+<li class="proj">
+<div class="proj-title"><span class="lang-en">Methods and Applications of AIGC-Empowered Revitalization of Library Collections</span><span class="lang-zh">AIGC 赋能图书馆典藏活化的方法与应用</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">PI</span><span class="lang-zh">主持</span></span><span class="lang-en">Library Society of China · 2026–2028</span><span class="lang-zh">中国图书馆学会科研项目 · 2026–2028</span></div>
+</li>
+<li class="proj">
+<div class="proj-title"><span class="lang-en">Intelligent Retrieval Database for Ethnic and Folk Art Resources, and AI Agents for K–12 Aesthetic Education</span><span class="lang-zh">面向民族民间文艺资源的智能检索数据库设计和中小学美育智能体研发</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Key Personnel</span><span class="lang-zh">第二参与人</span></span><span class="lang-en">Government Commissioned Project · 2025–2026</span><span class="lang-zh">中央部委委托项目 · 2025–2026</span></div>
+</li>
+<li class="proj">
+<div class="proj-title"><span class="lang-en">Institutional and Mechanism Innovations for Integrating Culture, Business, and Tourism in Beijing</span><span class="lang-zh">北京文商体旅融合的体制机制创新研究</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Key Personnel</span><span class="lang-zh">第二参与人</span></span><span class="lang-en">Capital High-End Think Tank · 2025–2026</span><span class="lang-zh">首都高端智库研究课题 · 2025–2026</span></div>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="col-label"><span class="lang-en">Related Work</span><span class="lang-zh">相关成果</span></h3>
+<ul class="rel-list">
+<li><a href="#C7"><span class="lang-en">Engaging with AI in Crowdsourced Digitization of Ancient Texts</span><span class="lang-zh">Engaging with AI in Crowdsourced Digitization of Ancient Texts</span><span class="rel-venue">ASIS&amp;T 2025 <span class="star">· <span class="lang-en">Best Conference Paper</span><span class="lang-zh">最佳会议论文</span></span></span></a></li>
+<li><a href="#J9">Exploring Immersive Cultural Heritage Experiences: A VR Application Featuring Ancient Manuscript<span class="rel-venue">Information Research 2026</span></a></li>
+<li><a href="#E5">“I Feel Recognized and Developed a Sense of Belonging”: Sustaining Volunteer Participation in Ancient Text Collation<span class="rel-venue">CSCW 2025</span></a></li>
+<li><a href="#J10"><span class="lang-en">Methodological Framework for Generative AI-Empowered Revitalization of Documentary Heritage</span><span class="lang-zh">AIGC 赋能图书馆典藏活化的方法与路径研究</span><span class="rel-venue"><span class="lang-en">Library Journal 2026</span><span class="lang-zh">图书馆杂志 2026</span></span></a></li>
+<li><a href="#J7"><span class="lang-en">Users' Information Needs and Information Seeking Effects in Ancient Text VR Experiences</span><span class="lang-zh">古文献 VR 体验中的用户信息需求类型与信息获取效果</span><span class="rel-venue"><span class="lang-en">Library Tribune 2025</span><span class="lang-zh">图书馆论坛 2025</span></span></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ── 02 HCI ── -->
+<section class="theme anim d4" id="hci">
+<div class="theme-head">
+<span class="theme-num">02</span>
+<h2><span class="lang-en">Human–Computer Interaction &amp; Human-Centered AI</span><span class="lang-zh">人机交互与人本人工智能</span></h2>
+</div>
+<p class="theme-desc"><span class="lang-en">Understanding how users interact with algorithms and intelligent agents, and using design to preserve human agency.</span><span class="lang-zh">理解用户与算法和智能体的交互，通过设计维护人的主体性。</span></p>
+<div class="theme-cols">
+<div>
+<h3 class="col-label"><span class="lang-en">Projects</span><span class="lang-zh">科研项目</span></h3>
+<ul class="proj-list">
+<li class="proj">
+<div class="proj-title"><span class="lang-en">Dynamic Role Modeling and Collaboration Mechanisms of AI Agents for Human–AI Knowledge Co-Creation</span><span class="lang-zh">面向人智知识共创的 AI 智能体动态角色建模与协同机制研究</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Key Personnel</span><span class="lang-zh">第二参与人</span></span><span class="lang-en">NSFC General Program · 2026–2029</span><span class="lang-zh">国家自然科学基金面上项目 · 2026–2029</span></div>
+</li>
+<li class="proj past">
+<div class="proj-title"><span class="lang-en">Influence of Information Behavior on Group Cognition in Online Knowledge Communities</span><span class="lang-zh">在线知识社群中信息行为对群体认知形成的影响研究</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Key Personnel</span><span class="lang-zh">核心成员</span></span><span class="lang-en">NSFC General Program · 2022–2025</span><span class="lang-zh">国家自然科学基金面上项目 · 2022–2025</span></div>
+</li>
+<li class="proj past">
+<div class="proj-title"><span class="lang-en">Postdoctoral International Academic Exchange Program</span><span class="lang-zh">博士后国（境）外学术交流项目</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">PI</span><span class="lang-zh">主持</span></span><span class="lang-en">China Postdoctoral Science Foundation · 2025 · Completed</span><span class="lang-zh">中国博士后科学基金 · 2025 · 已结项</span></div>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="col-label"><span class="lang-en">Related Work</span><span class="lang-zh">相关成果</span></h3>
+<ul class="rel-list">
+<li><a href="#C9">From Platform Data to Personal Insight: How Users Make Sense of and Reflect on Personalized Social Media Annual Recaps<span class="rel-venue">ACM CHI 2026</span></a></li>
+<li><a href="#C6">Beyond Explicit and Implicit: How Users Provide Feedback to Shape Personalized Recommendation Content<span class="rel-venue">ACM CHI 2025</span></a></li>
+<li><a href="#E3">Baby Steps for Easier Accessibility: Making the Alibaba Cloud Console More Inclusive<span class="rel-venue">ACM CHI 2021</span></a></li>
+<li><a href="#E2">How Consistent Is Your GUI Design?<span class="rel-venue">CSCW 2019</span></a></li>
+<li><a href="#C1">Out of Time, Out of Place: Reflections on Design Workshops as a Research Method<span class="rel-venue">CSCW 2016</span></a></li>
+<li><a href="#B1">Access by Design: Small Steps Toward Big Accessibility Wins<span class="rel-venue"><span class="lang-en">Springer book chapter, 2026</span><span class="lang-zh">Springer 专著章节，2026</span></span></a></li>
+<li><a href="#PT1"><span class="lang-en">An AI Agent System and Collaborative Knowledge Construction Method</span><span class="lang-zh">一种 AI 智能体系统及协同知识建构方法</span><span class="rel-venue"><span class="lang-en">Patent ZL202511737406.2, granted 2026</span><span class="lang-zh">发明专利 ZL202511737406.2，2026 年授权</span></span></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ── 03 Data Behavior & Curation ── -->
+<section class="theme anim d5" id="data">
+<div class="theme-head">
+<span class="theme-num">03</span>
+<h2><span class="lang-en">Data Behavior &amp; Data Curation</span><span class="lang-zh">数据行为与数据管护</span></h2>
+</div>
+<p class="theme-desc"><span class="lang-en">Understanding scholars’ needs for data and how they use it, and improving data curation so that it serves data-driven scholarship.</span><span class="lang-zh">理解学者对数据的需求与利用行为，完善数据管护以服务数据驱动的学术研究。</span></p>
+<div class="theme-cols">
+<div>
+<h3 class="col-label"><span class="lang-en">Projects</span><span class="lang-zh">科研项目</span></h3>
+<ul class="proj-list">
+<li class="proj past">
+<div class="proj-title"><span class="lang-en">Conceptual Space and Research System Construction for Digital Scholarship</span><span class="lang-zh">数字学术的概念空间及研究体系构建</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Key Personnel</span><span class="lang-zh">第二参与人</span></span><span class="lang-en">Library Society of China · 2022–2024 · Rated “Excellent”</span><span class="lang-zh">中国图书馆学会科研项目 · 2022–2024 · 鉴定优秀</span></div>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="col-label"><span class="lang-en">Related Work</span><span class="lang-zh">相关成果</span></h3>
+<ul class="rel-list">
+<li><a href="#J6">Curating the Chinese Ancient Book Catalogs: The Dual Roles of Humanities Scholars as Experts and Users<span class="rel-venue">JASIST 2024</span></a></li>
+<li><a href="#J4">Analysing Humanities Scholars' Data Seeking Behaviour Patterns Using Ellis' Model<span class="rel-venue">Information Research 2024</span></a></li>
+<li><a href="#J8">The Landscape of Data Reuse in Interactive Information Retrieval<span class="rel-venue">JASIST 2025</span></a></li>
+<li><a href="#J11"><span class="lang-en">A Systematic Review and Analytical Framework for Data Curation Models</span><span class="lang-zh">数据管护模型的系统性综述与理论框架构建</span><span class="rel-venue"><span class="lang-en">Documentation, Information &amp; Knowledge 2026</span><span class="lang-zh">图书情报知识 2026</span></span></a></li>
+<li><a href="#J1"><span class="lang-en">The Conceptualization and Model Construction of Data Behaviors</span><span class="lang-zh">数据行为的概念界定与模型构建</span><span class="rel-venue"><span class="lang-en">Library and Information Service 2022</span><span class="lang-zh">图书情报工作 2022</span></span></a></li>
+<li><a href="#C5">Collaborative Data Behaviors in Digital Humanities Research Teams<span class="rel-venue">JCDL 2024</span></a></li>
+<li><a href="#C3">Characterizing Data Practices in Research Papers Across Four Disciplines<span class="rel-venue">iConference 2023</span></a></li>
+<li><a href="#B2">Data Behaviour: How People Interact with Data and Datasets<span class="rel-venue"><span class="lang-en">Cambridge University Press, in preparation</span><span class="lang-zh">剑桥大学出版社，在编</span></span></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ── 04 Digital Humanities ── -->
+<section class="theme anim d6" id="dh">
+<div class="theme-head">
+<span class="theme-num">04</span>
+<h2><span class="lang-en">Digital Humanities</span><span class="lang-zh">数字人文</span></h2>
+</div>
+<p class="theme-desc"><span class="lang-en">Building the infrastructure that digital humanities research depends on, and exploring new methods for doing that research.</span><span class="lang-zh">构建数字人文研究所依赖的基础设施，探索数字人文研究的新方法。</span></p>
+<div class="theme-cols">
+<div>
+<h3 class="col-label"><span class="lang-en">Projects</span><span class="lang-zh">科研项目</span></h3>
+<ul class="proj-list">
+<li class="proj past">
+<div class="proj-title"><span class="lang-en">Construction of a Knowledge Graph for the History of Chinese Confucianism</span><span class="lang-zh">中国儒家学术史知识图谱构建研究</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Key Personnel</span><span class="lang-zh">核心成员</span></span><span class="lang-en">NSFC Key International Cooperation · 2020–2025</span><span class="lang-zh">国家自然科学基金重点国际合作项目 · 2020–2025</span></div>
+</li>
+<li class="proj past">
+<div class="proj-title"><span class="lang-en">Integration and Analysis System for Historical Bibliography Data</span><span class="lang-zh">历代典籍目录数据集成与分析系统</span></div>
+<div class="proj-meta"><span class="role"><span class="lang-en">Co-I</span><span class="lang-zh">课题秘书</span></span><span class="lang-en">National Ancient Books Digitization Special Funding · 2020–2024</span><span class="lang-zh">国家古籍数字化工程专项经费资助项目 · 2020–2024</span></div>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="col-label"><span class="lang-en">Related Work</span><span class="lang-zh">相关成果</span></h3>
+<ul class="rel-list">
+<li><a href="#J3"><span class="lang-en">Diachronic Data Integration and Visualization of Ancient Book Catalogs Compiled for Imperial Collections</span><span class="lang-zh">历代史志目录的数据集成与可视化</span><span class="rel-venue"><span class="lang-en">Journal of Library Science in China 2023</span><span class="lang-zh">中国图书馆学报 2023</span></span></a></li>
+<li><a href="#J5">Book Cluster: A New Approach to Explore the Evolution of Knowledge Organization in Ancient China<span class="rel-venue">Digital Scholarship in the Humanities 2024</span></a></li>
+<li><a href="#C2">Exploring the Classification of Traditional Chinese Bibliographies through Interactive Visualization<span class="rel-venue">JCDL 2021</span></a></li>
+<li><a href="#C4">Towards a Useful Chinese Annotation Tool: Annotators' Practice and Needs<span class="rel-venue">iConference 2023</span></a></li>
+<li><a href="#J2"><span class="lang-en">A Review of Interactive Visualization Applications in Digital Humanities</span><span class="lang-zh">数字人文中的交互式可视化应用研究综述</span><span class="rel-venue"><span class="lang-en">Documentation, Information &amp; Knowledge 2022</span><span class="lang-zh">图书情报知识 2022</span></span></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ── Full publication list ── -->
+<section class="pubs anim d6" id="pubs">
+<h2><span class="lang-en">All Publications</span><span class="lang-zh">全部学术成果</span></h2>
+<p class="note"><span class="lang-en">* denotes corresponding author. Also on <a href="https://scholar.google.com/citations?user=mxsbaqkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</span><span class="lang-zh">* 为通讯作者。亦可见 <a href="https://scholar.google.com/citations?user=mxsbaqkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>。</span></p>
+
+<h3 class="sub"><span class="lang-en">Journal Articles</span><span class="lang-zh">期刊论文</span></h3>
+<ul class="pub-list">
+<li class="pub-item" id="J11"><span class="pub-id">J.11</span><span class="pub-body"><span class="lang-en"><b>Wenqi Li</b>, Pengyi Zhang*, Jun Wang. <em>A Systematic Review and Development of an Analytical Framework for Data Curation Models.</em> Documentation, Information &amp; Knowledge, 2026.</span><span class="lang-zh"><b>李文琦</b>, 张鹏翼*, 王军. <em>数据管护模型的系统性综述与理论框架构建.</em> 图书情报知识, 2026.</span></span></li>
+<li class="pub-item" id="J10"><span class="pub-id">J.10</span><span class="pub-body"><span class="lang-en">Jiaxing Yang, Yanan Wu, <b>Wenqi Li*</b>, Pengyi Zhang, Jun Wang. <em>Methodological Framework for Generative AI-Empowered Revitalization of Documentary Heritage.</em> Library Journal, 2026.</span><span class="lang-zh">杨佳兴, 吴亚南, <b>李文琦*</b>, 张鹏翼, 王军. <em>AIGC 赋能图书馆典藏活化的方法与路径研究.</em> 图书馆杂志, 2026.</span></span></li>
+<li class="pub-item" id="J9"><span class="pub-id">J.9</span><span class="pub-body"><b>Wenqi Li</b>, Zeyang Luo, Pengyi Zhang*. <em>Exploring Immersive Cultural Heritage Experiences: A User Study of a VR Application Featuring Ancient Manuscript.</em> Information Research, 2026, 31(iConf): 392–409.<span class="pub-badge">SSCI</span></span></li>
+<li class="pub-item" id="J8"><span class="pub-id">J.8</span><span class="pub-body">Tianji Jiang, <b>Wenqi Li</b>, Jiqun Liu*. <em>The Landscape of Data Reuse in Interactive Information Retrieval: Motivations, Sources, and Evaluation of Reusability.</em> Journal of the Association for Information Science and Technology, 2025, 76(9): 1258–1276.<span class="pub-badge">JASIST</span></span></li>
+<li class="pub-item" id="J7"><span class="pub-id">J.7</span><span class="pub-body"><span class="lang-en"><b>Wenqi Li</b>, Zeyang Luo, Pengyi Zhang*. <em>Users' Information Needs and Information Seeking Effects in Ancient Text VR Experiences.</em> Library Tribune, 2025, 45(2): 35–41.</span><span class="lang-zh"><b>李文琦</b>, 罗泽阳, 张鹏翼*. <em>古文献 VR 体验中的用户信息需求类型与信息获取效果.</em> 图书馆论坛, 2025, 45(2): 35–41.</span><span class="pub-badge">CSSCI</span></span></li>
+<li class="pub-item" id="J6"><span class="pub-id">J.6</span><span class="pub-body"><b>Wenqi Li</b>, Jun Wang*, Fengxiang Wang. <em>Curating the Chinese Ancient Book Catalogs: Leveraging the Dual Roles of Humanities Scholars as Experts and Users in Collaborative Practice.</em> Journal of the Association for Information Science and Technology, 2024, 75(12): 1331–1349.<span class="pub-badge">JASIST</span></span></li>
+<li class="pub-item" id="J5"><span class="pub-id">J.5</span><span class="pub-body"><b>Wenqi Li</b>, Zhaoji Wang*, Hanxu Yu, Qianting Lai, Jun Wang*. <em>Book Cluster: A New Approach to Explore the Evolution of Knowledge Organization in Ancient China.</em> Digital Scholarship in the Humanities, 2024, 39(4): 1064–1074.<span class="pub-badge">SSCI</span></span></li>
+<li class="pub-item" id="J4"><span class="pub-id">J.4</span><span class="pub-body"><b>Wenqi Li</b>, Pengyi Zhang*, Jun Wang. <em>Analysing Humanities Scholars' Data Seeking Behaviour Patterns Using Ellis' Model.</em> Information Research, 2024, 29(2): 401–418.<span class="pub-badge">SSCI</span></span></li>
+<li class="pub-item" id="J3"><span class="pub-id">J.3</span><span class="pub-body"><span class="lang-en"><b>Wenqi Li</b>, Fengxiang Wang*, Xianbin Sun, Zhixin Huang, Pengbei Li. <em>Diachronic Data Integration and Visualization of Ancient Book Catalogs Compiled for Imperial Collections.</em> Journal of Library Science in China, 2023, 49(01): 82–98.</span><span class="lang-zh"><b>李文琦</b>, 王凤翔*, 孙显斌, 黄芷欣, 李芃蓓. <em>历代史志目录的数据集成与可视化.</em> 中国图书馆学报, 2023, 49(01): 82–98.</span><span class="pub-badge"><span class="lang-en">Highly Cited</span><span class="lang-zh">高 PCSI 论文</span></span></span></li>
+<li class="pub-item" id="J2"><span class="pub-id">J.2</span><span class="pub-body"><span class="lang-en"><b>Wenqi Li</b>. <em>A Review of Research on Interactive Visualization Applications in Digital Humanities.</em> Documentation, Information &amp; Knowledge, 2022, 39(05): 42–55.</span><span class="lang-zh"><b>李文琦</b>. <em>数字人文中的交互式可视化应用研究综述.</em> 图书情报知识, 2022, 39(05): 42–55.</span></span></li>
+<li class="pub-item" id="J1"><span class="pub-id">J.1</span><span class="pub-body"><span class="lang-en"><b>Wenqi Li</b>, Pengyi Zhang*. <em>The Conceptualization and Model Construction of Data Behaviors.</em> Library and Information Service, 2022, 66(23): 29–40.</span><span class="lang-zh"><b>李文琦</b>, 张鹏翼*. <em>数据行为的概念界定与模型构建.</em> 图书情报工作, 2022, 66(23): 29–40.</span><span class="pub-badge"><span class="lang-en">Reprinted in RUC Digest</span><span class="lang-zh">人大复印资料全文转载</span></span></span></li>
+</ul>
+
+<h3 class="sub"><span class="lang-en">Conference Papers</span><span class="lang-zh">会议论文</span></h3>
+<ul class="pub-list">
+<li class="pub-item" id="C9"><span class="pub-id">C.9</span><span class="pub-body"><b>Wenqi Li</b>, Jinghan Zhang, Junyang Ma, Pengyi Zhang. <em>From Platform Data to Personal Insight: How Users Make Sense of and Reflect on Personalized Social Media Annual Recaps.</em> In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems, 2026: 1–20.<span class="pub-badge">CHI</span></span></li>
+<li class="pub-item" id="C8"><span class="pub-id">C.8</span><span class="pub-body">Tianji Jiang, <b>Wenqi Li</b>, Jiqun Liu. <em>Improving Data Reusability in Interactive IR: Insights from the Community.</em> In Proceedings of the 2026 Conference on Human Information Interaction and Retrieval, 2026: 524–528.<span class="pub-badge">CHIIR</span></span></li>
+<li class="pub-item" id="C7"><span class="pub-id">C.7</span><span class="pub-body">Chenyu Zhang, <b>Wenqi Li*</b>, Zeyang Luo, Pengyi Zhang. <em>Engaging with AI in Crowdsourced Digitization of Ancient Texts: User Perception and Interaction.</em> In Proceedings of the Association for Information Science and Technology, 2025: 1167–1172.<span class="pub-badge"><span class="lang-en">Best Paper</span><span class="lang-zh">最佳论文</span></span></span></li>
+<li class="pub-item" id="C6"><span class="pub-id">C.6</span><span class="pub-body"><b>Wenqi Li</b>, Jui-Ching Kuo, Manyu Sheng, Pengyi Zhang, Qunfang Wu. <em>Beyond Explicit and Implicit: How Users Provide Feedback to Shape Personalized Recommendation Content.</em> In Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems, 2025: 1–17.<span class="pub-badge">CHI</span></span></li>
+<li class="pub-item" id="C5"><span class="pub-id">C.5</span><span class="pub-body"><b>Wenqi Li</b>, Zhenyi Tang, Pengyi Zhang*, Jun Wang. <em>Collaborative Data Behaviors in Digital Humanities Research Teams.</em> In Proceedings of the 24th ACM/IEEE Joint Conference on Digital Libraries, 2025: 1–5.<span class="pub-badge">JCDL</span></span></li>
+<li class="pub-item" id="C4"><span class="pub-id">C.4</span><span class="pub-body"><b>Wenqi Li</b>, Tzu-yi Ho, Jun Wang*. <em>Towards a Useful Chinese Annotation Tool: An Examination of Annotators' Practice and Needs.</em> In International Conference on Information (iConference), 2023: 326–340.</span></li>
+<li class="pub-item" id="C3"><span class="pub-id">C.3</span><span class="pub-body">Sanwoo Lee, <b>Wenqi Li*</b>, Pengyi Zhang, Jun Wang. <em>Characterizing Data Practices in Research Papers Across Four Disciplines.</em> In International Conference on Information (iConference), 2023: 359–368.</span></li>
+<li class="pub-item" id="C2"><span class="pub-id">C.2</span><span class="pub-body"><b>Wenqi Li</b>, Fengxiang Wang, Jun Wang*. <em>Exploring the Classification of Traditional Chinese Bibliographies through Interactive Visualization.</em> In ACM/IEEE Joint Conference on Digital Libraries, 2021: 246–249.<span class="pub-badge">JCDL</span></span></li>
+<li class="pub-item" id="C1"><span class="pub-id">C.1</span><span class="pub-body">Daniela K. Rosner*, Saba Kawas, <b>Wenqi Li</b>, Nicole Tilly, Yi-Chen Sung. <em>Out of Time, Out of Place: Reflections on Design Workshops as a Research Method.</em> In Proceedings of the 19th ACM Conference on Computer-Supported Cooperative Work &amp; Social Computing, 2016: 1131–1141.<span class="pub-badge">CSCW</span></span></li>
+</ul>
+
+<h3 class="sub"><span class="lang-en">Conference Posters</span><span class="lang-zh">会议海报</span></h3>
+<ul class="pub-list">
+<li class="pub-item" id="E5"><span class="pub-id">E.5</span><span class="pub-body">Zisheng Liu, <b>Wenqi Li*</b>, Haolei Liu, Pengyi Zhang. <em>“I Feel Recognized and Developed a Sense of Belonging”: Sustaining Volunteer Participation in Ancient Text Collation.</em> In Companion Publication of the 2025 Conference on Computer-Supported Cooperative Work and Social Computing, 2025: 367–372.<span class="pub-badge">CSCW</span></span></li>
+<li class="pub-item" id="E4"><span class="pub-id">E.4</span><span class="pub-body"><b>Wenqi Li</b>, Pengyi Zhang*, Jun Wang. <em>Humanities Scholars' Understanding of Data and the Implications for Humanities Data Curation.</em> In Proceedings of the Association for Information Science and Technology, 2023, 60(1): 1034–1036.</span></li>
+<li class="pub-item" id="E3"><span class="pub-id">E.3</span><span class="pub-body"><b>Wenqi Li</b>, Chenyu Li*, Yuwei Yang. <em>Baby Steps for Easier Accessibility: Our Practice of Making Alibaba Cloud Console More Inclusive by Taking Baby Steps.</em> In Extended Abstracts of the 2021 CHI Conference on Human Factors in Computing Systems, 2021: 1–5.<span class="pub-badge">CHI</span></span></li>
+<li class="pub-item" id="E2"><span class="pub-id">E.2</span><span class="pub-body"><b>Wenqi Li*</b>, Chenyu Li, Yuwei Yang. <em>How Consistent Is Your GUI Design?</em> In Conference Companion Publication of the 2019 Conference on Computer Supported Cooperative Work and Social Computing, 2019: 278–282.<span class="pub-badge">CSCW</span></span></li>
+<li class="pub-item" id="E1"><span class="pub-id">E.1</span><span class="pub-body"><b>Wenqi Li</b>, Yifei Xu, Jun Wang. <em>Evaluating the Interaction Design of General Tasks in Children's Mobile Apps.</em> In iConference, 2015.</span></li>
+</ul>
+
+<h3 class="sub"><span class="lang-en">Books &amp; Book Chapters</span><span class="lang-zh">编著与章节</span></h3>
+<ul class="pub-list">
+<li class="pub-item" id="B2"><span class="pub-id">B.2</span><span class="pub-body">Pengyi Zhang, <b>Wenqi Li</b>, Kathleen Gregory. <em>Data Behaviour: How People Interact with Data and Datasets.</em> Cambridge University Press.<span class="pub-badge"><span class="lang-en">In Preparation</span><span class="lang-zh">在编</span></span></span></li>
+<li class="pub-item" id="B1"><span class="pub-id">B.1</span><span class="pub-body"><b>Wenqi Li</b>, Chenyu Li, Yuwei Yang. <em>Access by Design: Small Steps Toward Big Accessibility Wins.</em> In HCI in the Wild: Measuring UX within the Product Ecosystem (1st ed.). Springer Cham, 2026.</span></li>
+</ul>
+
+
+<h3 class="sub"><span class="lang-en">Patent</span><span class="lang-zh">专利</span></h3>
+<ul class="pub-list">
+<li class="pub-item" id="PT1"><span class="pub-id">PT.1</span><span class="pub-body"><span class="lang-en">Pengyi Zhang, <b>Wenqi Li</b>, Zhenyi Tang, et al. <em>An AI Agent System and Collaborative Knowledge Construction Method.</em> Patent No. ZL202511737406.2, granted May 19, 2026.</span><span class="lang-zh">张鹏翼, <b>李文琦</b>, 唐震怡 等. <em>一种 AI 智能体系统及协同知识建构方法.</em> 专利号 ZL202511737406.2，已授权，2026-05-19。</span></span></li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+<div class="footer-inner">
+<p><a href="mailto:wenqili@pku.edu.cn">wenqili@pku.edu.cn</a></p>
+<p><span class="lang-en">Department of Information Management, Peking University</span><span class="lang-zh">北京大学信息管理系</span></p>
+<div class="footer-links">
+<a href="https://scholar.google.com/citations?user=mxsbaqkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,titleEl=document.querySelector('title');
+  function apply(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l==='zh'?'zh-CN':'en');
+    if(titleEl&&titleEl.getAttribute('data-'+l))document.title=titleEl.getAttribute('data-'+l);
+  }
+  var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
+  apply(saved==='zh'||saved==='en'?saved:(root.getAttribute('data-lang')||'en'));
+  Array.prototype.forEach.call(document.querySelectorAll('.lang-toggle'),function(btn){
+    btn.addEventListener('click',function(){
+      var next=root.getAttribute('data-lang')==='en'?'zh':'en';
+      try{localStorage.setItem('site-lang',next)}catch(e){}
+      apply(next);
+    });
+  });
+})();
+</script>
+</body>
+</html>

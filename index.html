@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Wenqi Li — Digital Cultural Heritage &amp; HCI" data-zh="李文琦 — 数字文化遗产与人机交互">Wenqi Li — Digital Cultural Heritage &amp; HCI</title>
+<script>(function(){var l=null;try{l=localStorage.getItem('site-lang')}catch(e){}l=(l==='zh'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-lang',l);r.setAttribute('lang',l==='zh'?'zh-CN':'en')})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#FAFAF8;--surface:#FFFFFF;--primary:#6B5CE7;--secondary:#9B8FE8;
+--text:#2D2B35;--dim:#6B6880;--border:#E8E6EE;
+--cjk:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC';
+--font-body:'IBM Plex Sans',var(--cjk),sans-serif;--font-heading:'Outfit',var(--cjk),sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .2s}
+a:hover{color:var(--secondary)}
+
+/* ── I18N ── */
+html[data-lang="en"] .lang-zh{display:none!important}
+html[data-lang="zh"] .lang-en{display:none!important}
+html[data-lang="zh"] body{line-height:1.75}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(250,250,248,.85);border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.nav-logo{font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.nav-logo span{color:var(--primary)}
+.nav-right{display:flex;align-items:center;gap:1.25rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--dim);letter-spacing:.04em;text-transform:uppercase;position:relative;padding-bottom:4px}
+.nav-links a.active,.nav-links a:hover{color:var(--primary)}
+.nav-links a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--primary);border-radius:1px}
+.lang-toggle{padding:.3rem .7rem;border:1px solid var(--border);background:var(--surface);color:var(--dim);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.08em;cursor:pointer;transition:color .2s,border-color .2s}
+.lang-toggle:hover{color:var(--primary);border-color:var(--primary)}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 4rem}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center}
+.hero-text{max-width:640px}
+.hero-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--primary);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.hero-label::before{content:'';width:24px;height:1px;background:var(--primary)}
+.hero-name{font-family:var(--font-heading);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:700;line-height:1.1;margin-bottom:.75rem;color:var(--primary)}
+.hero-title{font-family:var(--font-heading);font-size:1.125rem;font-weight:400;color:var(--dim);margin-bottom:1.5rem;line-height:1.5}
+.hero-bio{font-size:1.05rem;color:var(--dim);line-height:1.8;font-weight:400}
+
+/* ── GEOMETRIC PHOTO ── */
+.photo-frame{position:relative;width:380px;height:460px}
+.photo-frame-border{position:absolute;inset:-2px;background:linear-gradient(135deg,var(--primary),var(--secondary),transparent 60%);clip-path:polygon(0 0,100% 0,100% 85%,85% 100%,0 100%);opacity:.25}
+.photo-inner{position:absolute;inset:0;background:var(--surface);clip-path:polygon(0 0,100% 0,100% 85%,85% 100%,0 100%);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(107,92,231,.08)}
+/* Crop framing: source is landscape with the subject right-of-centre, so pull the
+   visible window right to keep her face and the right half of the painting. */
+.photo-inner img{width:100%;height:100%;object-fit:cover;object-position:80% 50%;display:block}
+.photo-placeholder{font-size:6rem;opacity:.12;font-family:var(--font-heading);color:var(--primary)}
+.photo-corner{position:absolute;width:40px;height:40px;border:2px solid var(--primary);opacity:.18}
+.photo-corner--tl{top:-12px;left:-12px;border-right:none;border-bottom:none}
+.photo-corner--br{bottom:-12px;right:-12px;border-left:none;border-top:none}
+
+/* ── DIVIDER ── */
+.divider{position:relative;z-index:1;max-width:1200px;margin:0 auto;border:none;border-top:1px solid var(--border)}
+
+/* ── NEWS ── */
+.news{position:relative;z-index:1;padding:4rem 2rem 6rem;max-width:1200px;margin:0 auto}
+.section-header{margin-bottom:2rem}
+.section-header h2{font-family:var(--font-heading);font-size:1.75rem;font-weight:600;color:var(--text)}
+.news-list{display:flex;flex-direction:column}
+.news-item{display:flex;gap:1.6rem;padding:.85rem 0;border-bottom:1px solid var(--border);align-items:baseline}
+.news-item:last-child{border-bottom:none}
+.news-date{flex-shrink:0;width:120px;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);font-weight:600;font-variant-numeric:tabular-nums}
+.news-desc{font-size:1rem;color:var(--dim);line-height:1.6}
+.news-desc a{color:var(--primary);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .25s}
+.news-desc a:hover{border-bottom-color:var(--primary)}
+
+/* ── FOOTER ── */
+.footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:3rem 2rem;max-width:1200px;margin:0 auto}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem}
+.footer-contact p{font-size:.875rem;color:var(--dim);line-height:1.8}
+.footer-contact a{color:var(--primary)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);font-weight:500}
+.footer-links a:hover{color:var(--primary)}
+.footer-copy{width:100%;text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--dim)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .7s ease forwards}
+.fade-up:nth-child(1){animation-delay:.1s}
+.fade-up:nth-child(2){animation-delay:.2s}
+.fade-up:nth-child(3){animation-delay:.3s}
+.fade-up:nth-child(4){animation-delay:.4s}
+.fade-up:nth-child(5){animation-delay:.5s}
+.hero-text>*{opacity:0;animation:fadeUp .7s ease forwards}
+.hero-text>*:nth-child(1){animation-delay:.2s}
+.hero-text>*:nth-child(2){animation-delay:.35s}
+.hero-text>*:nth-child(3){animation-delay:.5s}
+.hero-text>*:nth-child(4){animation-delay:.65s}
+.photo-frame{opacity:0;animation:fadeUp .8s ease .4s forwards}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+.hero-inner{grid-template-columns:1fr;gap:3rem;justify-items:center}
+.photo-frame{width:280px;height:340px}
+.nav-links{gap:1rem}
+.nav-right{gap:1rem}
+}
+@media(max-width:480px){
+.hero{padding:6rem 1.25rem 3rem}
+.nav{padding:.75rem 1rem}
+.nav-links{gap:.75rem}
+.nav-links a{font-size:.7rem}
+.news{padding:2rem 1.25rem 4rem}
+.news-item{flex-direction:column;gap:.2rem}
+.news-date{width:auto}
+.footer-inner{flex-direction:column}
+}
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(107,92,231,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(107,92,231,.04) 1px,transparent 1px);background-size:60px 60px}
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.orb-1{width:500px;height:500px;background:rgba(107,92,231,.06);top:-10%;right:-5%}
+.orb-2{width:400px;height:400px;background:rgba(155,143,232,.05);bottom:10%;left:-8%}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav class="nav">
+  <div class="nav-logo">W<span>.</span>Li</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active"><span class="lang-en">Home</span><span class="lang-zh">首页</span></a></li>
+      <li><a href="research.html"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a></li>
+      <li><a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-zh">教学</span></a></li>
+      <li><a href="cv.html"><span class="lang-en">CV</span><span class="lang-zh">简历</span></a></li>
+      <li><a href="about.html"><span class="lang-en">More About</span><span class="lang-zh">关于我</span></a></li>
+    </ul>
+    <button class="lang-toggle" type="button" aria-label="Switch language / 切换语言"><span class="lang-en">中文</span><span class="lang-zh">EN</span></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-label"><span class="lang-en">Digital Cultural Heritage · HCI · Data Behavior</span><span class="lang-zh">数字文化遗产 · 人机交互 · 数据行为</span></p>
+      <h1 class="hero-name"><span class="lang-en">Wenqi<br>Li</span><span class="lang-zh">李文琦</span></h1>
+      <p class="hero-title"><span class="lang-en">Assistant Professor<br>Department of Information Management · Peking University</span><span class="lang-zh">助理教授<br>北京大学信息管理系</span></p>
+      <p class="hero-bio"><span class="lang-en">Wenqi Li is an Assistant Professor in the Department of Information Management at Peking University, where she previously held a Boya Postdoctoral Fellowship. She earned her Ph.D. in Information Science from Peking University and an M.S. in Human Centered Design &amp; Engineering from the University of Washington. Her research spans human–computer interaction, digital cultural heritage, digital humanities, data behavior, and data curation. Her recent work centers on the data behavior of humanities scholars and the research infrastructure that digital humanities depends on, together with the use of AI in preserving cultural heritage, collating ancient texts, and engaging the public. Her current projects ask how generative AI and human–AI co-creation can revitalize cultural heritage and open up new forms of experience. Her research appears in JASIST, ACM CHI, CSCW, JCDL, and the Journal of Library Science in China. Before entering academia, she spent four years as a user experience designer at Microsoft (USA) and Alibaba Cloud.</span><span class="lang-zh">李文琦，北京大学信息管理系助理教授，此前任北京大学博雅博士后。她于北京大学获情报学博士学位，并于华盛顿大学人本设计与工程系获理学硕士学位。研究领域涵盖人机交互、数字文化遗产、数字人文、数据行为与数据管护。近年来的工作聚焦人文学者的数据行为与数字人文研究基础设施，以及人工智能在文化遗产保护、古籍整理与公众参与中的应用；近期研究关注如何结合生成式 AI 与人智共创，推动文化遗产的活化与体验创新。研究成果发表于 JASIST、ACM CHI、CSCW、JCDL 及《中国图书馆学报》等期刊与会议。进入学界前，她曾在微软（美国）与阿里云担任用户体验设计师四年。</span></p>
+    </div>
+    <div class="photo-frame">
+      <div class="photo-frame-border"></div>
+      <div class="photo-inner"><img src="photo.jpg" alt="Wenqi Li" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'photo-placeholder',textContent:'WL'}))"></div>
+      <div class="photo-corner photo-corner--tl"></div>
+      <div class="photo-corner photo-corner--br"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="news">
+  <div class="section-header"><h2><span class="lang-en">Latest News</span><span class="lang-zh">最新动态</span></h2></div>
+  <div class="news-list">
+    <div class="news-item">
+      <span class="news-date"><span class="lang-en">Jul 2026</span><span class="lang-zh">2026.07</span></span>
+      <span class="news-desc"><span class="lang-en">Our “<a href="https://yungang.pkudh.net/" target="_blank" rel="noopener">Yungang New Vows</a>” system was featured at the Technology–Culture Convergence Exhibition of the 2026 Cross-Strait Youth Summit.</span><span class="lang-zh">我们的“<a href="https://yungang.pkudh.net/" target="_blank" rel="noopener">云冈新愿</a>”系统亮相 2026 两岸青年峰会“科技文化融合展”。</span></span>
+    </div>
+    <div class="news-item">
+      <span class="news-date"><span class="lang-en">Jul 2026</span><span class="lang-zh">2026.07</span></span>
+      <span class="news-desc"><span class="lang-en">Started as Assistant Professor in the Department of Information Management, Peking University.</span><span class="lang-zh">入职北京大学信息管理系，任助理教授。</span></span>
+    </div>
+    <div class="news-item">
+      <span class="news-date"><span class="lang-en">May 2026</span><span class="lang-zh">2026.05</span></span>
+      <span class="news-desc"><span class="lang-en">Our “<a href="https://yungang.pkudh.net/" target="_blank" rel="noopener">Yungang New Vows</a>” system was shown at the opening stop of the “Fusion · Yungang Art” university touring exhibition, hosted by the University of Science and Technology Beijing, with stops to follow at Wuhan University, Tianjin University, Tsinghua University, and others.</span><span class="lang-zh">我们的“<a href="https://yungang.pkudh.net/" target="_blank" rel="noopener">云冈新愿</a>”系统在北京科技大学首场“融·云冈艺术高校巡展”展出，随后将在武汉大学、天津大学、清华大学等高校亮相。</span></span>
+    </div>
+    <div class="news-item">
+      <span class="news-date"><span class="lang-en">May 2026</span><span class="lang-zh">2026.05</span></span>
+      <span class="news-desc"><span class="lang-en">Patent granted: “An AI Agent System and Collaborative Knowledge Construction Method” (ZL202511737406.2).</span><span class="lang-zh">发明专利授权：《一种 AI 智能体系统及协同知识建构方法》（ZL202511737406.2）。</span></span>
+    </div>
+    <div class="news-item">
+      <span class="news-date"><span class="lang-en">2026</span><span class="lang-zh">2026</span></span>
+      <span class="news-desc"><span class="lang-en">Paper accepted at <strong>CHI 2026</strong>: "From Platform Data to Personal Insight: How Users Make Sense of and Reflect on Personalized Social Media Annual Recaps."</span><span class="lang-zh">论文被 <strong>CHI 2026</strong> 录用：“From Platform Data to Personal Insight: How Users Make Sense of and Reflect on Personalized Social Media Annual Recaps”。</span></span>
+    </div>
+    <div class="news-item">
+      <span class="news-date"><span class="lang-en">2026</span><span class="lang-zh">2026</span></span>
+      <span class="news-desc"><span class="lang-en">Two new projects started as PI — an intelligent generation system for the digital patrons of the Yungang Grottoes, and AIGC-empowered revitalization of library collections.</span><span class="lang-zh">两项主持项目启动——“云冈石窟数字供养人智能生成系统构建”与“AIGC 赋能图书馆典藏活化的方法与应用”。</span></span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-contact">
+      <p><a href="mailto:wenqili@pku.edu.cn">wenqili@pku.edu.cn</a></p>
+      <p><span class="lang-en">Department of Information Management</span><span class="lang-zh">信息管理系</span></p>
+      <p><span class="lang-en">Peking University</span><span class="lang-zh">北京大学</span></p>
+    </div>
+    <div class="footer-links">
+      <a href="https://scholar.google.com/citations?user=mxsbaqkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 <span class="lang-en">Wenqi Li. All rights reserved.</span><span class="lang-zh">李文琦</span></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,titleEl=document.querySelector('title');
+  function apply(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l==='zh'?'zh-CN':'en');
+    if(titleEl&&titleEl.getAttribute('data-'+l))document.title=titleEl.getAttribute('data-'+l);
+  }
+  var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
+  apply(saved==='zh'||saved==='en'?saved:(root.getAttribute('data-lang')||'en'));
+  Array.prototype.forEach.call(document.querySelectorAll('.lang-toggle'),function(btn){
+    btn.addEventListener('click',function(){
+      var next=root.getAttribute('data-lang')==='en'?'zh':'en';
+      try{localStorage.setItem('site-lang',next)}catch(e){}
+      apply(next);
+    });
+  });
+})();
+</script>
+</body>
+</html>

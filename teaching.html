@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Teaching — Wenqi Li" data-zh="教学 — 李文琦">Teaching — Wenqi Li</title>
+<script>(function(){var l=null;try{l=localStorage.getItem('site-lang')}catch(e){}l=(l==='zh'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-lang',l);r.setAttribute('lang',l==='zh'?'zh-CN':'en')})();</script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#FAFAF8;--surface:#FFFFFF;--border:#E8E6EE;
+--accent:#6B5CE7;--accent2:#9B8FE8;
+--text:#2D2B35;--text-dim:#6B6880;--text-muted:#A09CB0;
+--cjk:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC';
+--font-body:'IBM Plex Sans',var(--cjk),sans-serif;
+--font-head:'Outfit',var(--cjk),sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent2)}
+
+/* I18N */
+html[data-lang="en"] .lang-zh{display:none!important}
+html[data-lang="zh"] .lang-en{display:none!important}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+background:rgba(250,250,248,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+nav .nav-inner{max-width:860px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .logo{font-family:var(--font-head);font-weight:700;font-size:1.15rem;color:var(--text);letter-spacing:-.02em}
+nav .nav-right{display:flex;align-items:center;gap:1.25rem}
+nav .links{display:flex;gap:1.6rem;font-size:.9rem;font-weight:500}
+nav .links a{color:var(--text-dim);transition:color .2s}
+nav .links a:hover,nav .links a.active{color:var(--accent)}
+.lang-toggle{padding:.3rem .7rem;border:1px solid var(--border);background:var(--surface);color:var(--text-dim);font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.08em;cursor:pointer;transition:color .2s,border-color .2s}
+.lang-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+/* Layout */
+main{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:7rem 2rem 4rem}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .7s ease forwards}
+.fade-up.d1{animation-delay:.1s}.fade-up.d2{animation-delay:.2s}
+.fade-up.d3{animation-delay:.3s}.fade-up.d4{animation-delay:.4s}.fade-up.d5{animation-delay:.5s}
+
+/* Hero */
+.page-title{font-family:var(--font-head);font-size:3rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
+.page-subtitle{color:var(--text-dim);font-size:1.1rem;max-width:620px;margin-bottom:3rem;font-weight:400}
+
+/* Section */
+.section-title{font-family:var(--font-head);font-size:1.4rem;font-weight:600;margin-bottom:1.2rem;color:var(--text)}
+
+/* Course table */
+.course-list{list-style:none}
+.course-list li{display:flex;gap:1.5rem;padding:1.1rem 0;border-bottom:1px solid var(--border);align-items:baseline}
+.course-item+.course-item{margin-top:.8rem}
+.course-list li:last-child{border-bottom:none}
+.course-role{flex-shrink:0;width:150px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+html[data-lang="zh"] .course-role{text-transform:none;letter-spacing:.02em}
+.course-body{flex:1;min-width:0}
+.course-name{font-size:.98rem;font-weight:500;color:var(--text)}
+.course-meta{font-size:.83rem;color:var(--text-muted);margin-top:.1rem}
+
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.5rem 1.8rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,.03)}
+.card .code{font-family:var(--font-head);font-size:.95rem;font-weight:600;color:var(--accent);margin-bottom:.35rem}
+.card .title{font-weight:500;margin-bottom:.4rem}
+.card .desc{color:var(--text-dim);font-size:.9rem}
+
+/* Mentoring */
+.advising-points{list-style:none;margin:0 0 2.2rem;display:flex;flex-direction:column;gap:.55rem}
+.advising-points li{position:relative;padding-left:1.15rem;color:var(--text-dim);font-size:.95rem;line-height:1.8}
+.advising-points li::before{content:'';position:absolute;left:0;top:.72em;width:5px;height:5px;background:var(--accent);border-radius:50%}
+.mentee-heading{font-family:var(--font-head);font-size:.72rem;font-weight:700;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:.14em;margin:0 0 .4rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+html[data-lang="zh"] .mentee-heading{text-transform:none;letter-spacing:.06em}
+.mentee-list{list-style:none}
+.mentee-list li{padding:.8rem 0;border-bottom:1px solid var(--border)}
+.mentee-list li:last-child{border-bottom:none}
+.mentee-name{font-size:.95rem;font-weight:600;color:var(--text)}
+.mentee-meta{font-size:.85rem;color:var(--text-dim);margin-top:.1rem;line-height:1.6}
+
+/* Advising */
+.advising-note{color:var(--text-dim);font-size:.95rem;margin-bottom:1.2rem;line-height:1.8}
+.advising-note strong{color:var(--accent)}
+
+/* Footer */
+footer{position:relative;z-index:1;text-align:center;padding:3rem 2rem;color:var(--text-muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:3rem}
+footer a{color:var(--text-dim)}
+
+/* Responsive */
+@media(max-width:900px){
+  .page-title{font-size:2.4rem}
+  nav .links{gap:1.2rem}
+  nav .nav-right{gap:1rem}
+}
+@media(max-width:480px){
+  .hamburger{display:block}
+  nav .links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(250,250,248,.95);padding:1.5rem 2rem;gap:1rem;backdrop-filter:blur(20px)}
+  nav .links.open{display:flex}
+  .page-title{font-size:1.8rem}
+  .page-subtitle{font-size:.95rem}
+  .course-list li{flex-direction:column;gap:.15rem}
+  .course-role{width:auto}
+  main{padding:5.5rem 1.2rem 2.5rem}
+}
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(107,92,231,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(107,92,231,.04) 1px,transparent 1px);background-size:60px 60px}
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.orb-1{width:500px;height:500px;background:rgba(107,92,231,.06);top:-10%;right:-5%}
+.orb-2{width:400px;height:400px;background:rgba(155,143,232,.05);bottom:10%;left:-8%}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="lang-en">Wenqi Li</span><span class="lang-zh">李文琦</span></div>
+    <button class="hamburger" onclick="document.querySelector('.links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-right">
+      <div class="links">
+        <a href="index.html"><span class="lang-en">Home</span><span class="lang-zh">首页</span></a>
+        <a href="research.html"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a>
+        <a href="teaching.html" class="active"><span class="lang-en">Teaching</span><span class="lang-zh">教学</span></a>
+        <a href="cv.html"><span class="lang-en">CV</span><span class="lang-zh">简历</span></a>
+        <a href="about.html"><span class="lang-en">More About</span><span class="lang-zh">关于我</span></a>
+      </div>
+      <button class="lang-toggle" type="button" aria-label="Switch language / 切换语言"><span class="lang-en">中文</span><span class="lang-zh">EN</span></button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="fade-up">
+    <h1 class="page-title"><span class="lang-en">Teaching</span><span class="lang-zh">教学</span></h1>
+    <p class="page-subtitle"><span class="lang-en">Fostering interdisciplinary thinking, and a capacity for innovation grounded in humanistic concern, at the intersection of technology, data, the humanities, and design.</span><span class="lang-zh">在技术、数据、人文与设计的交叉处，培养跨学科的思考方式和具有人文关怀的创新能力。</span></p>
+  </section>
+
+  <section class="fade-up d1" style="margin-bottom:3.5rem">
+    <h2 class="section-title"><span class="lang-en">Courses</span><span class="lang-zh">教授课程</span></h2>
+    <ul class="course-list">
+      <li>
+        <span class="course-role"><span class="lang-en">In Development</span><span class="lang-zh">拟开设课程</span></span>
+        <div class="course-body">
+          <div class="course-item">
+            <div class="course-name"><span class="lang-en">Design of Digital Intelligence Cultural Products</span><span class="lang-zh">数智文化产品设计</span></div>
+          </div>
+          <div class="course-item">
+            <div class="course-name"><span class="lang-en">Human–AI Interaction</span><span class="lang-zh">人智交互</span></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="course-role"><span class="lang-en">Co-Instructor</span><span class="lang-zh">联合授课</span></span>
+        <div class="course-body">
+          <div class="course-item">
+            <div class="course-name"><span class="lang-en">Human–Computer Interaction and User Experience</span><span class="lang-zh">人机交互与用户体验</span></div>
+            <div class="course-meta"><span class="lang-en">PKU General Education Core Course · Spring 2025 &amp; Spring 2026</span><span class="lang-zh">北京大学通识核心课 · 2025 春 &amp; 2026 春</span></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="course-role"><span class="lang-en">Summer Programs</span><span class="lang-zh">暑期课与工作坊</span></span>
+        <div class="course-body">
+          <div class="course-item">
+            <div class="course-name"><span class="lang-en">Young Scholars Training Camp on Digital Intelligence Humanities</span><span class="lang-zh">“数智人文”青年学者实训营</span></div>
+            <div class="course-meta"><span class="lang-en">Peking University · 2024 · Co-organizer</span><span class="lang-zh">北京大学 · 2024 · 参与组织</span></div>
+          </div>
+          <div class="course-item">
+            <div class="course-name"><span class="lang-en">International Joint Summer Workshop on Digital Humanities</span><span class="lang-zh">数字人文国际联合暑期工作坊</span></div>
+            <div class="course-meta"><span class="lang-en">Peking University · Harvard · Princeton · 2023 · Co-organizer</span><span class="lang-zh">北京大学 · 哈佛大学 · 普林斯顿大学 · 2023 · 参与组织</span></div>
+          </div>
+          <div class="course-item">
+            <div class="course-name"><span class="lang-en">Digital Humanities Summer Workshop</span><span class="lang-zh">数字人文暑期工作坊</span></div>
+            <div class="course-meta"><span class="lang-en">Peking University · 2022 · Co-organizer</span><span class="lang-zh">北京大学 · 2022 · 参与组织</span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="fade-up d2" style="margin-bottom:3.5rem">
+    <h2 class="section-title"><span class="lang-en">Curriculum &amp; Education Projects</span><span class="lang-zh">教学项目</span></h2>
+
+    <div class="card">
+      <div class="code"><span class="lang-en">MoE Industry–University Collaboration · 2025–2026</span><span class="lang-zh">教育部产学合作协同育人项目 · 2025–2026</span></div>
+      <div class="title"><span class="lang-en">AI+ Information Resource Management Curriculum Development</span><span class="lang-zh">AI+ 信息资源管理专业课程建设</span></div>
+      <div class="desc"><span class="lang-en">Co-Investigator. Developing curriculum that integrates AI technologies into information resource management education.</span><span class="lang-zh">第二参与人。建设将人工智能技术融入信息资源管理专业教育的课程体系。</span></div>
+    </div>
+
+    <div class="card">
+      <div class="code"><span class="lang-en">MoE Industry–University Collaboration · 2025–2026</span><span class="lang-zh">教育部产学合作协同育人项目 · 2025–2026</span></div>
+      <div class="title"><span class="lang-en">AIGC Design Paradigm and Practice</span><span class="lang-zh">AIGC 设计新范式与实践</span></div>
+      <div class="desc"><span class="lang-en">Co-Investigator. Exploring how generative AI reshapes design methodology and practice for information professionals.</span><span class="lang-zh">第二参与人。探索生成式人工智能如何重塑信息专业人才的设计方法与实践。</span></div>
+    </div>
+
+    <div class="card">
+      <div class="code"><span class="lang-en">Peking University · 2022–2023</span><span class="lang-zh">北京大学 · 2022–2023</span></div>
+      <div class="title"><span class="lang-en">AI-Enhanced Course Construction Program</span><span class="lang-zh">人工智能助推课程建设项目</span></div>
+      <div class="desc"><span class="lang-en">Co-Investigator. Integrating AI tools into course design at Peking University.</span><span class="lang-zh">第二参与人。将人工智能工具融入北京大学的课程设计。</span></div>
+    </div>
+  </section>
+
+  <section class="fade-up d3" style="margin-bottom:2rem">
+    <h2 class="section-title"><span class="lang-en">Mentoring</span><span class="lang-zh">学生指导</span></h2>
+    <p class="advising-note"><span class="lang-en">I consider mentoring the most important part of a teacher's work, and I genuinely enjoy working alongside students. If you are interested in digital cultural heritage, human–computer interaction, data behavior, or digital humanities, please <a href="mailto:wenqili@pku.edu.cn">write to me</a> — and feel free to ask me for a coffee chat any time.</span><span class="lang-zh">我始终认为指导学生是教师最重要的职责，也很享受和学生共事。如果你对数字文化遗产、人机交互、数据行为、数字人文等方向感兴趣，欢迎<a href="mailto:wenqili@pku.edu.cn">来信与我联系</a>，也欢迎随时约我 coffee chat。</span></p>
+    <ul class="advising-points">
+      <li><span class="lang-en">What I ask for above all is a sense of responsibility — that matters more than anything else.</span><span class="lang-zh">我希望你有责任心，这是最重要的。</span></li>
+      <li><span class="lang-en">I will do everything I can to help you attend international conferences and find internships at technology companies, and I will support whatever career you are aiming for, in academia or in industry.</span><span class="lang-zh">我将尽我所能帮助你参加国际学术会议、进入科技企业实习，支持你任何的职业发展目标，无论你选择学术还是业界工作。</span></li>
+      <li><span class="lang-en">Curiosity, hands-on design skill, and creativity are all pluses — I hope you'll bring me some inspiration too.</span><span class="lang-zh">好奇心、设计动手能力、创造力是加分项，期待你能带给我灵感！</span></li>
+    </ul>
+
+    <h3 class="mentee-heading"><span class="lang-en">Students I Have Mentored</span><span class="lang-zh">Mentor 过的学生</span></h3>
+    <ul class="mentee-list">
+      <li>
+        <div class="mentee-name"><span class="lang-en">Xiyuan Wang</span><span class="lang-zh">王熙源</span></div>
+        <div class="mentee-meta"><span class="lang-en">Undergraduate, class of 2024 · Human–AI co-creation</span><span class="lang-zh">24 级本科生 · 研究方向：人智共创</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Qingyu Li</span><span class="lang-zh">黎清宇</span></div>
+        <div class="mentee-meta"><span class="lang-en">M.S. in Artificial Intelligence, Beijing Forestry University, class of 2024 · Data behavior in digital humanities research</span><span class="lang-zh">北京林业大学人工智能 24 级硕士 · 研究方向：数字人文研究中的数据行为</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Zeyang Luo</span><span class="lang-zh">罗泽阳</span></div>
+        <div class="mentee-meta"><span class="lang-en">M.A. in Publishing, class of 2025 · Papers and talks at iConference 2026 and ASIS&amp;T 2026</span><span class="lang-zh">25 级出版学硕士 · 于 iConference 2026、ASIS&amp;T 2026 发表论文并做口头汇报</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Jiaxing Yang &amp; Yanan Wu</span><span class="lang-zh">杨佳兴、吴亚南</span></div>
+        <div class="mentee-meta"><span class="lang-en">Undergraduates, class of 2023 · Talk at CDH 2026, poster at ASIS&amp;T</span><span class="lang-zh">23 级本科生 · 于 CDH 2026 口头汇报，于 ASIS&amp;T 发表海报</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Chenyu Zhang</span><span class="lang-zh">张晨昱</span></div>
+        <div class="mentee-meta"><span class="lang-en">M.A. in Publishing, class of 2024 · Talk at ASIS&amp;T and Best Paper Award</span><span class="lang-zh">24 级出版学硕士 · 于 ASIS&amp;T 口头汇报并获 Best Paper</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Jinghan Zhang &amp; Junyang Ma</span><span class="lang-zh">张景涵、马郡阳</span></div>
+        <div class="mentee-meta"><span class="lang-en">Undergraduates, class of 2022 · Paper and talk at CHI 2026</span><span class="lang-zh">22 级本科生 · 于 CHI 2026 发表论文并做口头汇报</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Zisheng Liu &amp; Haolei Liu</span><span class="lang-zh">刘子声、刘浩蕾</span></div>
+        <div class="mentee-meta"><span class="lang-en">Undergraduates, class of 2022 · Poster at CSCW, Undergraduate Research Award</span><span class="lang-zh">22 级本科生 · 于 CSCW 发表海报，获本科生科研奖</span></div>
+      </li>
+      <li>
+        <div class="mentee-name"><span class="lang-en">Tzu-yi Ho</span><span class="lang-zh">何姿谊</span></div>
+        <div class="mentee-meta"><span class="lang-en">M.S. in Information Science, class of 2019 · Paper published at iConference</span><span class="lang-zh">19 级情报学硕士 · 论文发表于 iConference</span></div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <a href="mailto:wenqili@pku.edu.cn">wenqili@pku.edu.cn</a> · <span class="lang-en">Department of Information Management, Peking University</span><span class="lang-zh">北京大学信息管理系</span>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,titleEl=document.querySelector('title');
+  function apply(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l==='zh'?'zh-CN':'en');
+    if(titleEl&&titleEl.getAttribute('data-'+l))document.title=titleEl.getAttribute('data-'+l);
+  }
+  var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
+  apply(saved==='zh'||saved==='en'?saved:(root.getAttribute('data-lang')||'en'));
+  Array.prototype.forEach.call(document.querySelectorAll('.lang-toggle'),function(btn){
+    btn.addEventListener('click',function(){
+      var next=root.getAttribute('data-lang')==='en'?'zh':'en';
+      try{localStorage.setItem('site-lang',next)}catch(e){}
+      apply(next);
+    });
+  });
+})();
+</script>
+</body>
+</html>

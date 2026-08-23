@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# 相册原图：本地保留，不上传。
+# 网页只引用 photo/web/ 下自动生成的压缩版。
+photo/*.HEIC
+photo/*.heic
+photo/*.JPG
+photo/*.jpg
+photo/*.JPEG
+photo/*.jpeg
+photo/*.PNG
+photo/*.png
