@@ -31,8 +31,24 @@ Information Management at Peking University.
     ISIC'24@Denmark10.jpg
 
 同一个 label 的照片会自动归成一组（叠放 + 点开轮播）。HEIC / JPG / PNG 都可以，
-原图多大都行。加完之后让 Claude 重新生成一次，它会转成 JPEG、压到网页尺寸输出到
-`photo/web/`，并更新 `about.html` 里的相册数据。
+原图多大都行。加完（或删完）之后跑：
+
+```
+python3 build-photos.py
+```
+
+它会转成 JPEG、压到网页尺寸输出到 `photo/web/`、清掉已删除照片留下的旧文件，
+并更新 `about.html` 里的相册栅格和数据。
+
+几点说明：
+
+- 文件编号沿用原图编号。删掉 `Denmark3` 之后其余文件名不变，
+  已上线的图片 URL 不会失效，CDN 缓存也不会错位。
+- 相册组按年份倒序，同年按该组最晚的拍摄时间倒序。
+- 转换时会把 EXIF 的旋转方向烘进像素，再整体删掉 EXIF ——
+  顺带去掉了 GPS 和机型信息，公开站点上不该带这些。
+- 新地点需要先在 `build-photos.py` 的 `PLACES` 里补一行中英文对照，
+  否则脚本会直接报错退出。
 
 原图不入库（见 `.gitignore`），只保留在本地。
 

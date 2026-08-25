@@ -12,6 +12,14 @@
    {
     "full": "photo/web/chi26-barcelona-2.jpg",
     "thumb": "photo/web/chi26-barcelona-2-t.jpg"
+   },
+   {
+    "full": "photo/web/chi26-barcelona-3.jpg",
+    "thumb": "photo/web/chi26-barcelona-3-t.jpg"
+   },
+   {
+    "full": "photo/web/chi26-barcelona-4.jpg",
+    "thumb": "photo/web/chi26-barcelona-4-t.jpg"
    }
   ]
  },
@@ -24,10 +32,6 @@
    {
     "full": "photo/web/chi25-yokohama-1.jpg",
     "thumb": "photo/web/chi25-yokohama-1-t.jpg"
-   },
-   {
-    "full": "photo/web/chi25-yokohama-2.jpg",
-    "thumb": "photo/web/chi25-yokohama-2-t.jpg"
    },
    {
     "full": "photo/web/chi25-yokohama-3.jpg",
@@ -70,14 +74,6 @@
     "thumb": "photo/web/isic24-denmark-2-t.jpg"
    },
    {
-    "full": "photo/web/isic24-denmark-3.jpg",
-    "thumb": "photo/web/isic24-denmark-3-t.jpg"
-   },
-   {
-    "full": "photo/web/isic24-denmark-4.jpg",
-    "thumb": "photo/web/isic24-denmark-4-t.jpg"
-   },
-   {
     "full": "photo/web/isic24-denmark-5.jpg",
     "thumb": "photo/web/isic24-denmark-5-t.jpg"
    },
@@ -92,10 +88,6 @@
    {
     "full": "photo/web/isic24-denmark-8.jpg",
     "thumb": "photo/web/isic24-denmark-8-t.jpg"
-   },
-   {
-    "full": "photo/web/isic24-denmark-9.jpg",
-    "thumb": "photo/web/isic24-denmark-9-t.jpg"
    }
   ]
  },
