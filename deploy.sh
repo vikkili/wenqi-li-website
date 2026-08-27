@@ -21,5 +21,3 @@ echo "==> 待部署 $(find "$STAGE" -type f | wc -l | tr -d ' ') 个文件，$(d
 TOKEN=$(az staticwebapp secrets list -n "$APP" -g "$RG" --query properties.apiKey -o tsv)
 npx -y @azure/static-web-apps-cli@latest deploy "$STAGE" \
     --deployment-token "$TOKEN" --env production
-
-echo "==> 完成: https://$(az staticwebapp show -n "$APP" -g "$RG" --query defaultHostname -o tsv)"
