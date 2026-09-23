@@ -10,11 +10,9 @@ trap 'rm -rf "$STAGE"' EXIT
 
 cd "$(dirname "$0")"
 
-# 只放该公开的文件，photo/ 下的原图不上传
-mkdir -p "$STAGE/photo"
+# 只放该公开的文件
 cp index.html about.html research.html teaching.html cv.html 404.html \
    favicon.svg photo.jpg Wenqi_Li_CV.pdf staticwebapp.config.json "$STAGE/"
-cp -R photo/web "$STAGE/photo/"
 
 echo "==> 待部署 $(find "$STAGE" -type f | wc -l | tr -d ' ') 个文件，$(du -sh "$STAGE" | cut -f1)"
 

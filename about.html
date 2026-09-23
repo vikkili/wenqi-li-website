@@ -56,42 +56,6 @@ h2{font-family:var(--font-head);font-size:1.5rem;font-weight:600;margin-bottom:1
 .intro-text a:hover{border-bottom-color:var(--accent)}
 .intro-text strong{color:var(--text);font-weight:500}
 
-/* Moments — photo stacks */
-.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem 1.6rem}
-.stack{display:block;width:100%;background:none;border:none;padding:0;cursor:pointer;font:inherit;text-align:left}
-.pile{display:block;position:relative;aspect-ratio:4/3;margin-bottom:.9rem}
-.pile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--surface);
-border:5px solid #fff;box-shadow:0 2px 10px rgba(45,43,53,.16);transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
-.pile-img:nth-child(1){transform:rotate(-5deg) scale(.955)}
-.pile-img:nth-child(2){transform:rotate(3.5deg) scale(.977)}
-.pile-img:nth-child(3){transform:rotate(-.5deg)}
-.stack:hover .pile-img:nth-child(1),.stack:focus-visible .pile-img:nth-child(1){transform:rotate(-9deg) translate(-9px,-3px) scale(.955)}
-.stack:hover .pile-img:nth-child(2),.stack:focus-visible .pile-img:nth-child(2){transform:rotate(7deg) translate(9px,-3px) scale(.977)}
-.stack:hover .pile-img:nth-child(3),.stack:focus-visible .pile-img:nth-child(3){transform:rotate(-.5deg) translateY(-5px);box-shadow:0 10px 26px rgba(45,43,53,.2)}
-.stack:focus{outline:none}
-.stack:focus-visible .stack-title{color:var(--accent)}
-.stack-cap{display:block;padding-left:.15rem}
-.stack-title{display:block;font-family:var(--font-head);font-size:1.02rem;font-weight:600;color:var(--text);transition:color .2s}
-.stack:hover .stack-title{color:var(--accent)}
-.stack-sub{display:block;font-size:.82rem;color:var(--text-muted);margin-top:.1rem}
-
-/* Lightbox */
-.lb{position:fixed;inset:0;z-index:200;display:none;background:rgba(24,22,32,.93);
-backdrop-filter:blur(6px);align-items:center;justify-content:center}
-.lb.open{display:flex}
-.lb-fig{margin:0;max-width:min(1100px,92vw);max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:.9rem}
-.lb-img{max-width:100%;max-height:76vh;object-fit:contain;box-shadow:0 12px 44px rgba(0,0,0,.5);background:#111}
-.lb-cap{color:rgba(255,255,255,.82);font-size:.86rem;display:flex;gap:.7rem;align-items:baseline}
-.lb-cap b{color:#fff;font-family:var(--font-head);font-weight:600;font-size:.95rem}
-.lb-count{font-variant-numeric:tabular-nums;color:rgba(255,255,255,.55)}
-.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:none;cursor:pointer;
-background:rgba(255,255,255,.1);color:#fff;font-size:1.4rem;line-height:1;border-radius:50%;transition:background .2s}
-.lb-btn:hover{background:rgba(255,255,255,.22)}
-.lb-prev{left:max(1rem,3vw)}.lb-next{right:max(1rem,3vw)}
-.lb-close{position:absolute;top:1.1rem;right:max(1rem,3vw);width:40px;height:40px;border:none;cursor:pointer;
-background:rgba(255,255,255,.1);color:#fff;font-size:1.2rem;border-radius:50%;transition:background .2s}
-.lb-close:hover{background:rgba(255,255,255,.22)}
-
 /* Contact grid */
 .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 .contact-card{background:var(--surface);border:1px solid var(--border);padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.03)}
@@ -105,14 +69,11 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2r
 
 /* Responsive */
 @media(max-width:900px){
-  .stack-grid{grid-template-columns:repeat(2,1fr)}
   .contact-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{gap:1.2rem}
   .nav-right{gap:1rem}
 }
 @media(max-width:480px){
-  .stack-grid{grid-template-columns:1fr;gap:1.8rem}
-  .lb-btn{width:40px;height:40px}
   .contact-grid{grid-template-columns:1fr}
   .nav-links{gap:.8rem}
   .nav-links a{font-size:.78rem}
@@ -157,69 +118,8 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2r
     <p class="intro-text"><span class="lang-en">Outside of academia, my daily remedies are my lovely daughter, a good cup of coffee, very spicy food, and walks, movies, and stand-up comedy with my partner.</span><span class="lang-zh">学术之外，可以治愈我的是可爱的女儿，好喝的咖啡，很辣的食物，以及和家属遛弯、看电影和脱口秀。</span></p>
   </section>
 
-  <!-- Moments -->
-  <section class="fade-up d1">
-    <h2>Moments</h2>
-    <div class="stack-grid">
-      <button class="stack" type="button" data-group="chi26-barcelona" aria-label="CHI 26, Barcelona — 4 photos">
-        <span class="pile">
-          <img class="pile-img" src="photo/web/chi26-barcelona-3-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/chi26-barcelona-2-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/chi26-barcelona-1-t.jpg" alt="" loading="lazy">
-        </span>
-        <span class="stack-cap">
-          <span class="stack-title">CHI ’26</span>
-          <span class="stack-sub"><span class="lang-en">Barcelona · 4 photos</span><span class="lang-zh">西班牙巴塞罗那 · 4 张</span></span>
-        </span>
-      </button>
-      <button class="stack" type="button" data-group="chi25-yokohama" aria-label="CHI 25, Yokohama — 3 photos">
-        <span class="pile">
-          <img class="pile-img" src="photo/web/chi25-yokohama-4-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/chi25-yokohama-3-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/chi25-yokohama-1-t.jpg" alt="" loading="lazy">
-        </span>
-        <span class="stack-cap">
-          <span class="stack-title">CHI ’25</span>
-          <span class="stack-sub"><span class="lang-en">Yokohama · 3 photos</span><span class="lang-zh">日本横滨 · 3 张</span></span>
-        </span>
-      </button>
-      <button class="stack" type="button" data-group="jcdl24-hk" aria-label="JCDL 24, Hong Kong — 2 photos">
-        <span class="pile">
-          <img class="pile-img" src="photo/web/jcdl24-hk-2-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/jcdl24-hk-1-t.jpg" alt="" loading="lazy">
-        </span>
-        <span class="stack-cap">
-          <span class="stack-title">JCDL ’24</span>
-          <span class="stack-sub"><span class="lang-en">Hong Kong · 2 photos</span><span class="lang-zh">中国香港 · 2 张</span></span>
-        </span>
-      </button>
-      <button class="stack" type="button" data-group="isic24-denmark" aria-label="ISIC 24, Denmark — 6 photos">
-        <span class="pile">
-          <img class="pile-img" src="photo/web/isic24-denmark-5-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/isic24-denmark-2-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/isic24-denmark-1-t.jpg" alt="" loading="lazy">
-        </span>
-        <span class="stack-cap">
-          <span class="stack-title">ISIC ’24</span>
-          <span class="stack-sub"><span class="lang-en">Denmark · 6 photos</span><span class="lang-zh">丹麦 · 6 张</span></span>
-        </span>
-      </button>
-      <button class="stack" type="button" data-group="asist23-london" aria-label="ASIS&T 23, London — 2 photos">
-        <span class="pile">
-          <img class="pile-img" src="photo/web/asist23-london-2-t.jpg" alt="" loading="lazy">
-          <img class="pile-img" src="photo/web/asist23-london-1-t.jpg" alt="" loading="lazy">
-        </span>
-        <span class="stack-cap">
-          <span class="stack-title">ASIS&T ’23</span>
-          <span class="stack-sub"><span class="lang-en">London · 2 photos</span><span class="lang-zh">英国伦敦 · 2 张</span></span>
-        </span>
-      </button>
-    </div>
-  </section>
-
-
   <!-- Contact -->
-  <section class="fade-up d3">
+  <section class="fade-up d1">
     <h2><span class="lang-en">Get in Touch</span><span class="lang-zh">联系方式</span></h2>
     <div class="contact-grid">
       <div class="contact-card">
@@ -257,60 +157,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2r
       apply(next);
     });
   });
-})();
-</script>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lb-close" type="button" aria-label="Close">&#10005;</button>
-  <button class="lb-btn lb-prev" type="button" aria-label="Previous">&#8249;</button>
-  <figure class="lb-fig">
-    <img class="lb-img" id="lbImg" alt="">
-    <figcaption class="lb-cap"><b id="lbTitle"></b><span id="lbPlace"></span><span class="lb-count" id="lbCount"></span></figcaption>
-  </figure>
-  <button class="lb-btn lb-next" type="button" aria-label="Next">&#8250;</button>
-</div>
-
-<script>
-(function(){
-  var G={"chi26-barcelona": {"title": "CHI ’26", "place_en": "Barcelona", "place_zh": "西班牙巴塞罗那", "photos": ["photo/web/chi26-barcelona-1.jpg", "photo/web/chi26-barcelona-2.jpg", "photo/web/chi26-barcelona-3.jpg", "photo/web/chi26-barcelona-4.jpg"]}, "chi25-yokohama": {"title": "CHI ’25", "place_en": "Yokohama", "place_zh": "日本横滨", "photos": ["photo/web/chi25-yokohama-1.jpg", "photo/web/chi25-yokohama-3.jpg", "photo/web/chi25-yokohama-4.jpg"]}, "jcdl24-hk": {"title": "JCDL ’24", "place_en": "Hong Kong", "place_zh": "中国香港", "photos": ["photo/web/jcdl24-hk-1.jpg", "photo/web/jcdl24-hk-2.jpg"]}, "isic24-denmark": {"title": "ISIC ’24", "place_en": "Denmark", "place_zh": "丹麦", "photos": ["photo/web/isic24-denmark-1.jpg", "photo/web/isic24-denmark-2.jpg", "photo/web/isic24-denmark-5.jpg", "photo/web/isic24-denmark-6.jpg", "photo/web/isic24-denmark-7.jpg", "photo/web/isic24-denmark-8.jpg"]}, "asist23-london": {"title": "ASIS&T ’23", "place_en": "London", "place_zh": "英国伦敦", "photos": ["photo/web/asist23-london-1.jpg", "photo/web/asist23-london-2.jpg"]}};
-  var lb=document.getElementById('lb'), img=document.getElementById('lbImg'),
-      t=document.getElementById('lbTitle'), pl=document.getElementById('lbPlace'),
-      c=document.getElementById('lbCount'), root=document.documentElement;
-  var cur=null, i=0, opener=null;
-
-  function render(){
-    var g=G[cur];
-    img.src=g.photos[i];
-    img.alt=g.title+' — '+g.place_en+' ('+(i+1)+'/'+g.photos.length+')';
-    t.textContent=g.title;
-    pl.textContent=root.getAttribute('data-lang')==='zh'?g.place_zh:g.place_en;
-    c.textContent=(i+1)+' / '+g.photos.length;
-    var nx=g.photos[(i+1)%g.photos.length]; if(nx){var p=new Image();p.src=nx;}
-  }
-  function open(slug,btn){cur=slug;i=0;opener=btn;lb.classList.add('open');
-    document.body.style.overflow='hidden';render();lb.querySelector('.lb-close').focus();}
-  function close(){lb.classList.remove('open');document.body.style.overflow='';
-    if(opener)opener.focus();cur=null;}
-  function step(d){var n=G[cur].photos.length;i=(i+d+n)%n;render();}
-
-  Array.prototype.forEach.call(document.querySelectorAll('.stack'),function(b){
-    b.addEventListener('click',function(){open(b.dataset.group,b)});
-  });
-  lb.querySelector('.lb-close').addEventListener('click',close);
-  lb.querySelector('.lb-prev').addEventListener('click',function(e){e.stopPropagation();step(-1)});
-  lb.querySelector('.lb-next').addEventListener('click',function(e){e.stopPropagation();step(1)});
-  lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-fig'))close()});
-  document.addEventListener('keydown',function(e){
-    if(!cur)return;
-    if(e.key==='Escape')close();
-    else if(e.key==='ArrowLeft')step(-1);
-    else if(e.key==='ArrowRight')step(1);
-  });
-  var x0=null;
-  lb.addEventListener('touchstart',function(e){x0=e.changedTouches[0].clientX},{passive:true});
-  lb.addEventListener('touchend',function(e){
-    if(x0===null||!cur)return;var dx=e.changedTouches[0].clientX-x0;
-    if(Math.abs(dx)>45)step(dx<0?1:-1);x0=null;},{passive:true});
 })();
 </script>
 </body>

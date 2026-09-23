@@ -2,12 +2,6 @@
   "$schema": "https://json.schemastore.org/staticwebapp.config.json",
   "routes": [
     {
-      "route": "/photo/web/*",
-      "headers": {
-        "cache-control": "public, max-age=604800"
-      }
-    },
-    {
       "route": "/photo.jpg",
       "headers": {
         "cache-control": "public, max-age=604800"
